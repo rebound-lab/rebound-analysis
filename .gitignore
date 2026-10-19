@@ -1,0 +1,5 @@
+results/
+__pycache__/
+*.mp4
+*.MOV
+*.mov

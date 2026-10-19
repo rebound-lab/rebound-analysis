@@ -1,0 +1,48 @@
+{
+  "defaults": {
+    "drop_height_m": 2.0,
+    "drop_height_unc_m": 0.002,
+    "ball_radius_m": 0.0335,
+    "g": 9.81,
+    "lens_height_m": 0.77,
+    "level_row_px": null,
+    "n_trials": 5,
+    "anomaly_factor": 3
+  },
+  "videos": [
+    {
+      "name": "run01",
+      "tracking": "tracking/my_run01.csv",
+      "thickness_mm": 0,
+      "calibration": [
+        [12, 1.25],
+        [203, 1.15],
+        [397, 1.05],
+        [592, 0.95],
+        [786, 0.85],
+        [974, 0.75],
+        [1166, 0.65],
+        [1359, 0.55]
+      ]
+    },
+    {
+      "name": "run02",
+      "tracking": "tracking/my_run02.csv",
+      "thickness_mm": 2,
+      "lens_height_m": 0.765,
+      "calibration": [
+        [47, 1.25],
+        [237, 1.15],
+        [430, 1.05],
+        [620, 0.95],
+        [812, 0.85],
+        [1004, 0.75]
+      ],
+      "tape_line": {
+        "x_px": 675,
+        "y_px": 811,
+        "slope": -0.014
+      }
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "defaults": {
+    "drop_height_m": 2.0,
+    "drop_height_unc_m": 0.002,
+    "ball_radius_m": 0.0335,
+    "g": 9.81,
+    "lens_height_m": null,
+    "level_row_px": 960
+  },
+  "videos": [
+    {
+      "name": "run01",
+      "tracking": "tracking/run01.csv",
+      "thickness_mm": 0,
+      "calibration": [
+        [11.8, 1.25],
+        [202.9, 1.15],
+        [397, 1.05],
+        [592.3, 0.95],
+        [785.5, 0.85],
+        [974, 0.75],
+        [1165.8, 0.65],
+        [1359.2, 0.55],
+        [1556.6, 0.45],
+        [1752.9, 0.35]
+      ],
+      "tape_line": {
+        "x_px": 679,
+        "y_px": 12,
+        "slope": -0.012
+      },
+      "width_from_top_blobs": true,
+      "skip_duplicate_frames": true
+    },
+    {
+      "name": "run02",
+      "tracking": "tracking/run02.csv",
+      "thickness_mm": 2,
+      "calibration": [
+        [47, 1.25],
+        [237, 1.15],
+        [430, 1.05],
+        [620, 0.95],
+        [811.6, 0.85],
+        [1003.8, 0.75],
+        [1196.1, 0.65],
+        [1389.0, 0.55],
+        [1583, 0.45],
+        [1773, 0.35]
+      ],
+      "tape_line": {
+        "x_px": 675,
+        "y_px": 811,
+        "slope": -0.014
+      },
+      "width_from_top_blobs": true
+    },
+    {
+      "name": "run03",
+      "tracking": "tracking/run03.csv",
+      "thickness_mm": 4,
+      "calibration": [
+        [25, 1.25],
+        [212.2, 1.15],
+        [401.8, 1.05],
+        [592.8, 0.95],
+        [779.5, 0.85],
+        [964.8, 0.75],
+        [1149.9, 0.65],
+        [1337, 0.55],
+        [1527.2, 0.45],
+        [1717.8, 0.35],
+        [1905.2, 0.25]
+      ],
+      "tape_line": {
+        "x_px": 641,
+        "y_px": 108,
+        "slope": -0.044
+      },
+      "width_from_top_blobs": true,
+      "skip_duplicate_frames": true
+    },
+    {
+      "name": "run04",
+      "tracking": "tracking/run04.csv",
+      "thickness_mm": 6,
+      "calibration": [
+        [194.7, 1.15],
+        [386.1, 1.05],
+        [577.7, 0.95],
+        [765.8, 0.85],
+        [952.0, 0.75],
+        [1138.0, 0.65],
+        [1325.8, 0.55],
+        [1516.2, 0.45],
+        [1706.8, 0.35],
+        [1893.8, 0.25]
+      ],
+      "tape_line": {
+        "x_px": 623,
+        "y_px": 195,
+        "slope": -0.013
+      },
+      "width_from_top_blobs": true
+    },
+    {
+      "name": "run05",
+      "tracking": "tracking/run05.csv",
+      "thickness_mm": 8,
+      "calibration": [
+        [25.8, 1.25],
+        [215.5, 1.15],
+        [404.7, 1.05],
+        [594.0, 0.95],
+        [783, 0.85],
+        [970.0, 0.75],
+        [1160, 0.65],
+        [1344, 0.55],
+        [1530, 0.45],
+        [1717, 0.35]
+      ],
+      "tape_line": {
+        "x_px": 630,
+        "y_px": 215,
+        "slope": -0.013
+      },
+      "width_from_top_blobs": true,
+      "min_width_frac": 0.6,
+      "require_fall": false
+    },
+    {
+      "name": "run06",
+      "tracking": "tracking/run06.csv",
+      "thickness_mm": 10,
+      "calibration": [
+        [63, 1.25],
+        [248, 1.15],
+        [436, 1.05],
+        [622, 0.95],
+        [809, 0.85],
+        [995, 0.75],
+        [1182, 0.65],
+        [1369, 0.55],
+        [1556, 0.45],
+        [1743, 0.35]
+      ],
+      "tape_line": {
+        "x_px": 598,
+        "y_px": 250,
+        "slope": -0.011
+      },
+      "width_from_top_blobs": true
+    },
+    {
+      "name": "run07",
+      "tracking": "tracking/run07.csv",
+      "thickness_mm": 12,
+      "calibration": [
+        [52, 1.25],
+        [239, 1.15],
+        [425, 1.05],
+        [615, 0.95],
+        [801.0, 0.85],
+        [988.5, 0.75],
+        [1175.4, 0.65],
+        [1363.0, 0.55],
+        [1550, 0.45],
+        [1737, 0.35]
+      ],
+      "tape_line": {
+        "x_px": 562,
+        "y_px": 801,
+        "slope": -0.011
+      },
+      "width_from_top_blobs": true,
+      "skip_duplicate_frames": true
+    },
+    {
+      "name": "run08",
+      "tracking": "tracking/run08.csv",
+      "thickness_mm": 14,
+      "calibration": [
+        [95.2, 1.05],
+        [382.0, 0.95],
+        [671.5, 0.85],
+        [956.1, 0.75],
+        [1239.9, 0.65],
+        [1527.6, 0.55],
+        [1812.8, 0.45]
+      ],
+      "tape_line": {
+        "x_px": 838,
+        "y_px": 382,
+        "slope": -0.012
+      },
+      "width_from_top_blobs": true,
+      "skip_duplicate_frames": true
+    },
+    {
+      "name": "run09",
+      "tracking": "tracking/run09.csv",
+      "thickness_mm": 16,
+      "calibration": [
+        [368, 0.95],
+        [659, 0.85],
+        [945, 0.75],
+        [1228, 0.65],
+        [1516, 0.55]
+      ]
+    },
+    {
+      "name": "run10",
+      "tracking": "tracking/run10.csv",
+      "thickness_mm": 18,
+      "calibration": [
+        [150, 1.05],
+        [436, 0.95],
+        [720, 0.85],
+        [1005, 0.75],
+        [1289, 0.65],
+        [1572, 0.55],
+        [1853, 0.45]
+      ]
+    },
+    {
+      "name": "run11",
+      "tracking": "tracking/run11.csv",
+      "thickness_mm": 20,
+      "calibration": [
+        [179, 1.05],
+        [460, 0.95],
+        [743, 0.85],
+        [1026, 0.75],
+        [1309, 0.65],
+        [1593, 0.55],
+        [1877, 0.45]
+      ]
+    }
+  ]
+}
