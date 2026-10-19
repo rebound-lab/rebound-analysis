@@ -31,7 +31,7 @@ G = 9.81
 
 def status_text(dr):
     if dr.get("used"):
-        return Text("used", style="bold green")
+        return Text(f"trial {dr['trial']}" if dr.get("trial") else "used", style="bold green")
     if dr.get("anomalous"):
         return Text("anomalous", style="bold dark_orange")
     if dr["accepted"]:
@@ -49,7 +49,11 @@ def run_panel(name, c, geom, drops, s):
                  "ball scale (from g)", f"{geom['ball_scale_px_per_m']:.0f} px/m")
     info.add_row("scale ratio k", f"{geom['k']:.3f}",
                  "line of sight L", f"{geom['line_of_sight_m']:.3f} m")
+    info.add_row("ball radius r", f"{c['ball_radius_m']:.4f} m",
+                 "g", f"{c['g']:.2f} m s⁻²")
 
+    for i, dr in enumerate([x for x in drops if x.get("used")], 1):
+        dr["trial"] = i
     t = Table(box=box.SIMPLE_HEAVY, header_style="bold cyan", pad_edge=False)
     t.add_column("drop", justify="right")
     t.add_column("time / s", justify="right")

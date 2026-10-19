@@ -71,6 +71,19 @@ parallax-corrected height and the parallax error, and says why a drop was
 rejected. It writes `results/<name>_drops.csv` for every video and
 `results/summary.csv` with the mean rebound height, its uncertainty and √(*h*₂/*h*₁) for each.
 
+## Interactive app
+
+```
+python rebound_app.py
+```
+
+Type the thickness of the layer, drag the video file into the Terminal
+window and press Enter. The app finds the ball in every frame, calibrates the
+tape (from `videos.json` if the video's settings are saved there, otherwise you
+click two or more tape marks on a frame and type their readings), runs the
+analysis and saves `drops.csv` and a plot of every rebound used to
+`results/<video name>/`.
+
 ## Readable report and plots
 
 ```

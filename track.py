@@ -88,32 +88,40 @@ def main():
 
     lo = tuple(int(v) for v in a.hsv_lo.split(","))
     hi = tuple(int(v) for v in a.hsv_hi.split(","))
-    asp_lo, asp_hi = (float(v) for v in a.aspect.split(","))
-    fps = cap.get(cv2.CAP_PROP_FPS)
+    asp = tuple(float(v) for v in a.aspect.split(","))
+    n, found = track_video(cap, a.video, a.output, lo, hi, a.min_area, asp, a.fps)
+    print(f"{a.video}: {n} frames, ball found in {found}; written to {a.output}")
 
+
+def track_video(cap, video_name, out_path, lo=(25, 80, 120), hi=(45, 255, 255), min_area=300,
+                aspect=(0.4, 2.5), fixed_fps=None, progress=None):
+    """Track the ball in every frame of an opened video and write the CSV.
+    `progress(i)` is called after each frame if given. Returns (frames, frames with ball)."""
+    fps = cap.get(cv2.CAP_PROP_FPS)
     rows, i, size = [], 0, None
     while True:
         ok, frame = cap.read()
         if not ok:
             break
         size = frame.shape[1], frame.shape[0]
-        t = i / a.fps if a.fps else cap.get(cv2.CAP_PROP_POS_MSEC) / 1000.0
-        b = find_ball(frame, lo, hi, a.min_area, asp_lo, asp_hi)
+        t = i / fixed_fps if fixed_fps else cap.get(cv2.CAP_PROP_POS_MSEC) / 1000.0
+        b = find_ball(frame, lo, hi, min_area, aspect[0], aspect[1])
         rows.append([i, f"{t:.6f}"] + (list(b) if b else [""] * 6))
         i += 1
+        if progress:
+            progress(i)
     if size is None:
         sys.exit("no frames read")
 
     t0 = float(rows[0][1])
-    with open(a.output, "w", newline="") as f:
-        f.write(f"# video={a.video}\n# width={size[0]}\n# height={size[1]}\n# fps={fps}\n")
+    with open(out_path, "w", newline="") as f:
+        f.write(f"# video={video_name}\n# width={size[0]}\n# height={size[1]}\n# fps={fps}\n")
         w = csv.writer(f)
         w.writerow(["frame", "time_s", "x_px", "top_px", "bottom_px", "width_px", "height_px", "area_px"])
         for r in rows:
             r[1] = f"{float(r[1]) - t0:.6f}"
             w.writerow(r)
-    found = sum(1 for r in rows if r[2] != "")
-    print(f"{a.video}: {len(rows)} frames, ball found in {found}; written to {a.output}")
+    return len(rows), sum(1 for r in rows if r[2] != "")
 
 
 if __name__ == "__main__":
