@@ -296,8 +296,12 @@ def analyse(rows, meta, c):
             why.append("tracking unreliable")
         if abs(np.median(x) - x_med) > c["off_line_widths"] * w_med:
             why.append("not on the drop line")
+        # trajectory of the bottom of the ball above the surface, kept for plotting
+        traj = dict(t=tt - tt[0], h=L + ((row_L - y) - b0 * (x - cx)) / s_used - r_ball - d,
+                    t_top=float(tv - tt[0]), seen=bool(o["seen"]))
         drops.append(dict(drop=n, time_s=float(o["t"]), accepted=not why, reason="; ".join(why),
-                          h2_corrected_m=float(h2), vx_m_s=float(vx), scale_px_per_m=float(s_used)))
+                          h2_corrected_m=float(h2), vx_m_s=float(vx), scale_px_per_m=float(s_used),
+                          _traj=traj))
 
     # 6. uncorrected (tape) reading and parallax for every drop
     step = c["round_heights_m"]

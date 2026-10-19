@@ -71,6 +71,19 @@ parallax-corrected height and the parallax error, and says why a drop was
 rejected. It writes `results/<name>_drops.csv` for every video and
 `results/summary.csv` with the mean rebound height, its uncertainty and √(*h*₂/*h*₁) for each.
 
+## Readable report and plots
+
+```
+python report.py config.json
+```
+
+Runs the same analysis as `analyse.py`, but shows each run as a table in the
+terminal (tape reading, parallax correction, corrected height and status of
+every drop, then e with its uncertainty) and saves a plot of every rebound
+that was used to `results/plots/`. Each plot shows the tracked points read
+against the tape, the same points corrected for parallax, and the fitted
+parabola whose curvature is g.
+
 ## How the parallax is found
 
 The ball falls about 0.3 m in front of the tape, so it is nearer the camera
